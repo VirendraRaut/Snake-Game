@@ -1,44 +1,44 @@
-@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap");
 
 body {
+  margin: 0;
+  padding: 0;
   background-image: url("https://cdn.tutsplus.com/mobile/uploads/legacy/Corona-SDK_Build-A-Snake-Game/1/6.png");
-}
-
-#container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-h1#countdown {
-  color: red;
-  font-size: 100px;
-  font-weight: 500;
-  position: absolute;
-  top: 30%;
-  left: 47%;
-}
-
-#highScore {
+  background-size: cover;
+  background-position: center;
   font-family: "Kanit", sans-serif;
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  font-size: 40px;
-  font-weight: 800;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 }
 
+/* -------- Scoreboard -------- */
+.scoreboard {
+  width: 90vmin;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+#highScore,
 #ScoreBox {
-  font-family: "Hind Siliguri", sans-serif;
-  position: absolute;
-  top: 15px;
-  right: 65px;
-  font-size: 40px;
+  font-size: 4vw;   /* responsive on mobile */
   font-weight: 800;
+  text-shadow: 2px 2px 4px black;
 }
 
+@media (min-width: 768px) {
+  #highScore,
+  #ScoreBox {
+    font-size: 32px; /* fixed size for bigger screens */
+  }
+}
+
+/* -------- Board -------- */
 #board {
   background: linear-gradient(#a4dba4, #d5d5b4);
   height: 90vmin;
@@ -47,37 +47,32 @@ h1#countdown {
   display: grid;
   grid-template-columns: repeat(18, 1fr);
   grid-template-rows: repeat(18, 1fr);
+  margin: auto;
 }
 
+/* Snake Head */
 .head {
   background: linear-gradient(black, purple);
   border: 0.25vmin solid white;
   border-radius: 7px;
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
+/* Snake Body */
 .snakeBody {
   background: linear-gradient(purple, black);
   border: 0.25vmin solid black;
-  border-radius: 9px;
+  border-radius: 6px;
 }
 
+/* Food */
 .food {
   background: linear-gradient(red, rgb(222, 18, 18));
   border: 0.25vmin solid white;
-  border-radius: 10px;
+  border-radius: 50%;
 }
 
-#board {
-  width: 90vmin;
-  height: 90vmin;
-  margin: auto;
-  display: grid;
-  grid-template-rows: repeat(18, 1fr);
-  grid-template-columns: repeat(18, 1fr);
-  background: #e3e3e3;
-}
-
+/* -------- Mobile Controls -------- */
 #controls {
   margin-top: 20px;
   display: flex;
@@ -88,16 +83,24 @@ h1#countdown {
 #controls button {
   width: 60px;
   height: 60px;
-  font-size: 24px;
+  font-size: 28px;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #444;
   color: white;
   margin: 5px;
+  cursor: pointer;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.3);
+  transition: 0.2s ease;
+}
+
+#controls button:active {
+  transform: scale(0.9);
+  background: #222;
 }
 
 .mid-row {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
 }
