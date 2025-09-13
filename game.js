@@ -11,6 +11,7 @@ bgMusic.loop = true;
 let speed = 5;
 let score = 0;
 let lastPaintTime = 0;
+let musicStarted = false;
 
 let snakeArr = [{ x: 2, y: 2 }];
 let food = { x: 13, y: 6 };
@@ -50,7 +51,7 @@ function resetGame() {
   score = 0;
   ScoreBox.innerHTML = "Score: " + score;
   bgMusic.currentTime = 0;
-  bgMusic.play();
+  if (musicStarted) bgMusic.play().catch(() => {});
 }
 
 function randomFood() {
@@ -66,9 +67,6 @@ function randomFood() {
 }
 
 function gameEngine() {
-  // play bgMusic only once
-  if (bgMusic.paused) bgMusic.play();
-
   // Collide check
   if (isCollide(snakeArr)) {
     resetGame();
@@ -122,6 +120,13 @@ window.requestAnimationFrame(main);
 // Controls
 let lastDir = { x: 0, y: 0 };
 window.addEventListener("keydown", (e) => {
+  // Start music and game sound on first key press
+  if (!musicStarted) {
+    bgMusic.play().catch(() => {});
+    gameStart.play().catch(() => {});
+    musicStarted = true;
+  }
+
   let newDir = { ...inputDir };
   switch (e.key) {
     case "ArrowUp":    newDir = { x: 0, y: -1 }; break;
@@ -136,6 +141,3 @@ window.addEventListener("keydown", (e) => {
     snakeMove.play();
   }
 });
-
-// Start game sound
-gameStart.play();
