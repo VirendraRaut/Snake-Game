@@ -141,3 +141,20 @@ window.addEventListener("keydown", (e) => {
     snakeMove.play();
   }
 });
+
+// Mobile Controls
+document.getElementById("btnUp").addEventListener("click", () => {
+  if (lastDir.y !== 1) { inputDir = { x: 0, y: -1 }; lastDir = inputDir; snakeMove.play(); }
+});
+
+document.getElementById("btnDown").addEventListener("click", () => {
+  if (lastDir.y !== -1) { inputDir = { x: 0, y: 1 }; lastDir = inputDir; snakeMove.play(); }
+});
+
+document.getElementById("btnLeft").addEventListener("click", () => {
+  if (lastDir.x !== 1) { inputDir = { x: -1, y: 0 }; lastDir = inputDir; snakeMove.play(); }
+});
+
+document.getElementById("btnRight").addEventListener("click", () => {
+  if (lastDir.x !== -1) { inputDir = { x: 1, y: 0 }; lastDir = inputDir; snakeMove.play(); }
+});

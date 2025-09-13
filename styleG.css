@@ -67,3 +67,37 @@ h1#countdown {
   border: 0.25vmin solid white;
   border-radius: 10px;
 }
+
+#board {
+  width: 90vmin;
+  height: 90vmin;
+  margin: auto;
+  display: grid;
+  grid-template-rows: repeat(18, 1fr);
+  grid-template-columns: repeat(18, 1fr);
+  background: #e3e3e3;
+}
+
+#controls {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#controls button {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  border: none;
+  border-radius: 10px;
+  background: #444;
+  color: white;
+  margin: 5px;
+}
+
+.mid-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}

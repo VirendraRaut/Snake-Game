@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Snake Game</title>
-  <link rel="stylesheet" href="styleG.css">
-</head>
-<body>
-  <div id="highScore">Highest Score: 0</div>
-  <div id="ScoreBox">Score: 0</div>
-  <div id="container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="styleG.css" />
+  </head>
+  <body>
     <div id="board"></div>
-  </div>
-  <script src="game.js"></script>
-</body>
+
+    <div id="controls">
+      <button id="btnUp">⬆️</button>
+      <div class="mid-row">
+        <button id="btnLeft">⬅️</button>
+        <button id="btnDown">⬇️</button>
+        <button id="btnRight">➡️</button>
+      </div>
+    </div>
+
+    <div id="ScoreBox">Score: 0</div>
+    <div id="highScore">Highest Score: 0</div>
+
+    <script src="game.js"></script>
+  </body>
 </html>
