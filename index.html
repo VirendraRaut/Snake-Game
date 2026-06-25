@@ -1,17 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Snake Pro - Classic Arcade</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Home Screen -->
+    <div id="homeScreen" class="screen active">
+      <div class="home-container">
+        <div class="logo-section">
+          <div class="snake-icon">🐍</div>
+          <h1 class="game-title">SNAKE <span>PRO</span></h1>
+          <p class="subtitle">Classic Arcade Edition</p>
+        </div>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Snake Game</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-</head>
+        <div class="instructions">
+          <h2>How to Play</h2>
+          <div class="instruction-grid">
+            <div class="instruction-item">
+              <span class="icon">⌨️</span>
+              <p>Use <strong>Arrow Keys</strong> to control the snake</p>
+            </div>
+            <div class="instruction-item">
+              <span class="icon">📱</span>
+              <p>Touch <strong>buttons</strong> on mobile devices</p>
+            </div>
+            <div class="instruction-item">
+              <span class="icon">🎯</span>
+              <p>Eat <strong>food</strong> to grow and increase score</p>
+            </div>
+            <div class="instruction-item">
+              <span class="icon">⚠️</span>
+              <p>
+                Avoid hitting <strong>walls</strong> or your own
+                <strong>tail</strong>
+              </p>
+            </div>
+          </div>
+        </div>
 
-<body>
-  <div class="home-page">
-    <button class="btn" onclick="window.location.href='game.html'"> PLAY </button>
-  </div>
-</body>
+        <button id="startGameBtn" class="btn-primary">
+          <span>▶</span> Start Game
+        </button>
 
+        <div class="footer-info">
+          <p>Use arrow keys on desktop • Touch controls on mobile</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="gameScreen" class="screen">
+      <div class="game-container">
+        <!-- Scoreboard -->
+        <div class="scoreboard">
+          <div class="score-item">
+            <span class="label">Score</span>
+            <span id="ScoreBox" class="value">0</span>
+          </div>
+          <div class="score-item">
+            <span class="label">Best</span>
+            <span id="highScore" class="value">0</span>
+          </div>
+        </div>
+
+        <!-- Game Board -->
+        <div id="board"></div>
+
+        <!-- Mobile Controls (hidden on desktop) -->
+        <div id="controls" class="mobile-controls">
+          <div class="control-grid">
+            <button id="btnUp" class="ctrl-btn" aria-label="Up">▲</button>
+            <button id="btnLeft" class="ctrl-btn" aria-label="Left">◀</button>
+            <button id="btnDown" class="ctrl-btn" aria-label="Down">▼</button>
+            <button id="btnRight" class="ctrl-btn" aria-label="Right">▶</button>
+          </div>
+        </div>
+
+        <!-- Game Over Overlay -->
+        <div id="gameOverOverlay" class="overlay hidden">
+          <div class="overlay-content">
+            <h2>Game Over</h2>
+            <p class="final-score">Score: <span id="finalScore">0</span></p>
+            <p class="best-score">Best: <span id="finalHighScore">0</span></p>
+            <div class="overlay-buttons">
+              <button id="restartBtn" class="btn-primary">🔄 Play Again</button>
+              <button id="homeBtn" class="btn-secondary">🏠 Home</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pause Overlay -->
+        <div id="pauseOverlay" class="overlay hidden">
+          <div class="overlay-content">
+            <h2>⏸️ Paused</h2>
+            <p>Press <strong>Space</strong> or tap to resume</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
 </html>
