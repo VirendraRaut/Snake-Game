@@ -12,7 +12,7 @@ bgMusic.volume = 0.3;
 // ========== GAME STATE ==========
 let inputDir = { x: 0, y: 0 };
 let lastDir = { x: 0, y: 0 };
-let speed = 2;
+let speed = 3;
 let score = 0;
 let lastPaintTime = 0;
 let musicStarted = false;
@@ -194,7 +194,7 @@ function resetGame() {
   snakeArr = [{ x: 8, y: 8 }];
   food = randomFood();
   score = 0;
-  speed = 8;
+  speed = 3;
   gameOver = false;
   gamePaused = false;
   gameOverOverlay.classList.add("hidden");
