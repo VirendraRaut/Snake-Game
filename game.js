@@ -12,7 +12,7 @@ bgMusic.volume = 0.3;
 // ========== GAME STATE ==========
 let inputDir = { x: 0, y: 0 };
 let lastDir = { x: 0, y: 0 };
-let speed = 8;
+let speed = 2;
 let score = 0;
 let lastPaintTime = 0;
 let musicStarted = false;
